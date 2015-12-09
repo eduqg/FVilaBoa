@@ -2,8 +2,22 @@
 %h2(align ="center") Discipule - Cadastro de Conteúdos Online
 %br
 
+	=link_to "Novo Artigo", new_artigo_path
 
-=link_to "Novo Artigo", new_artigo_path
+- @artigos.each do |artigo|
+	%h2 
+		= artigo.Título
+
+	%p 
+		= truncate(artigo.Conteúdo, length: 100)
+
+	%p
+		Publicado em 
+		= artigo.created_at.strftime('%d %b de %Y')
+
+
+
+
 
 
 %br

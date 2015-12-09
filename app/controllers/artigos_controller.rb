@@ -1,6 +1,8 @@
 class ArtigosController < ApplicationController
 	before_action :achar_artigo, only: [:show]
+	
 	def index
+		@artigos = Artigo.all.order("created_at DESC")
 	end
 
 	def show
