@@ -1,14 +1,15 @@
 %img(src="http://imageshack.com/a/img908/737/b2FIm8.png" align="center" height="100" widith="100")
 %h2(align ="center") Discipule - Cadastro de Conteúdos Online
+
 %br
 
 - if usuario_signed_in?
 	=link_to "Novo Artigo", new_artigo_path
 
 - @artigos.each do |artigo|
-	%h2 
-		= artigo.Título
-
+	%h2
+		= link_to artigo.Título, artigo
+	
 	%p 
 		= truncate(artigo.Conteúdo, length: 100)
 

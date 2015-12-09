@@ -3,8 +3,17 @@ class ArtigosController < ApplicationController
 	before_action :authenticate_usuario!, except: [:index, :show]
 	#se usuario quiser entrar ele nao ser redirecionado para o sign up
 	def index
-		@artigos = Artigo.all.order("created_at DESC")
+		if params[:categoria].blank?
+			@artigos = Artigo.all.order("created_at DESC")
+		else
+			@categoria_id = Categoria.find_by(nome: params[:categoria]).id
+			@artigos = Artigo.where(categoria_id: @categoria_id).order("created_at DESC")
+		end
+
+
 	end
+	#se nao estiver selecionado um artigo, ira listar todos
+	#se nao, ira listar apenas daquela categoria
 
 	def show
 	end
@@ -26,7 +35,7 @@ class ArtigosController < ApplicationController
 	private
 
 	def artigo_parametros
-		params.require(:artigo).permit(:Título, :Conteúdo)
+		params.require(:artigo).permit(:Título, :Conteúdo, :categoria_id)
 	end
 
 	def achar_artigo

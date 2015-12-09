@@ -1,7 +1,10 @@
 
 %br
 = simple_form_for @artigo do |f|
-	
+
+	= f.collection_select :categoria_id, Categoria.all, :id, :Nome, { promt: "Selecione uma Categoria" }
+	%br
+	%br
 	= f.input :Título
 	%br
 	= f.input :Conteúdo
