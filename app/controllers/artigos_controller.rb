@@ -10,11 +10,11 @@ class ArtigosController < ApplicationController
 
 
 	def new
-		@artigo = Artigo.new
+		@artigo = current_usuario.artigos.build
 	end
 
 	def create
-		@artigo = Artigo.new(artigo_parametros)
+		@artigo = current_usuario.artigos.build(artigo_parametros)
 		if @artigo.save
 			redirect_to @artigo
 		else
