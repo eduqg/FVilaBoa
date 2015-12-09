@@ -1,21 +1,25 @@
-%img(src="http://imageshack.com/a/img908/737/b2FIm8.png" align="center" height="100" widith="100")
+%img(src="http://imageshack.com/a/img908/2835/M5lwNo.png" align="center" height="100" widith="100")
+
 %h2(align ="center") Discipule - Cadastro de Conteúdos Online
 
 %br
 
 - if usuario_signed_in?
-	=link_to "Novo Artigo", new_artigo_path
+	%b
+		%p(align="center")
+			=link_to "Adicione um Conteúdo", new_artigo_path
 
 - @artigos.each do |artigo|
-	%h2
-		= link_to artigo.Título, artigo
-	
-	%p 
-		= truncate(artigo.Conteúdo, length: 100)
-
-	%p
-		Publicado em 
-		= artigo.created_at.strftime('%d %b de %Y')
+	%blockquote
+		%h2
+			= link_to artigo.Título, artigo
+	%blockquote
+		%p 
+			= truncate(artigo.Conteúdo, length: 100)
+	%blockquote
+		%p(align="right")
+			Publicado em 
+			= artigo.created_at.strftime('%d %b de %Y')
 
 
 
@@ -25,4 +29,4 @@
 %br
 %br
 %br
-%img(src="http://imageshack.com/a/img903/3310/RYTmT8.png" align="left")
+%img(src="http://imageshack.com/a/img905/5237/rFUJuH.png" align="left")
