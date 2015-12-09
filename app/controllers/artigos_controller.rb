@@ -1,7 +1,11 @@
 class ArtigosController < ApplicationController
-
+	before_action :achar_artigo, only: [:show]
 	def index
 	end
+
+	def show
+	end
+
 
 	def new
 		@artigo = Artigo.new
@@ -20,6 +24,10 @@ class ArtigosController < ApplicationController
 
 	def artigo_parametros
 		params.require(:artigo).permit(:Título, :Conteúdo)
+	end
+
+	def achar_artigo
+		@artigo = Artigo.find(params[:id])
 	end
 
 end

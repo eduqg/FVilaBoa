@@ -1,4 +1,13 @@
+
+%br
 = simple_form_for @artigo do |f|
-	f.input :Título
-	f.input :Conteúdo
-	f.submit
+	
+	= f.input :Título
+	%br
+	= f.input :Conteúdo
+	%br
+	= f.submit
+
+	%br
+	%br
+	/o barra e comentario em haml, obs: se deixar sem o igual vira um print normal
