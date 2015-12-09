@@ -17,7 +17,7 @@ class ArtigosController < ApplicationController
 
 	def show
 	end
-
+	
 
 	def new
 		@artigo = current_usuario.artigos.build
@@ -48,6 +48,9 @@ class ArtigosController < ApplicationController
 		redirect_to root_path
 	end
 
+	def sobre
+	end
+
 	private
 
 	def artigo_parametros
@@ -57,5 +60,6 @@ class ArtigosController < ApplicationController
 	def achar_artigo
 		@artigo = Artigo.find(params[:id])
 	end
+
 
 end
