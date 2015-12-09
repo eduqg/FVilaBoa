@@ -1,5 +1,5 @@
 class ArtigosController < ApplicationController
-	before_action :achar_artigo, only: [:show]
+	before_action :achar_artigo, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_usuario!, except: [:index, :show]
 	#se usuario quiser entrar ele nao ser redirecionado para o sign up
 	def index
@@ -30,6 +30,22 @@ class ArtigosController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def edit
+	end
+
+	def update
+		if @artigo.update(artigo_parametros)
+			redirect_to @artigo
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@artigo.destroy
+		redirect_to root_path
 	end
 
 	private
