@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :usuarios
   #routes.rb
 
   resources :artigos
