@@ -9,8 +9,22 @@
 
 - if usuario_signed_in?
 	%b
+		%blockquote
+			%p(align="right")
+				=link_to('Sair', destroy_usuario_session_path, :method => :delete)
+
+		%br
+
 		%p(align="center")
-			=link_to "Adicione um Conteúdo", new_artigo_path
+			=link_to "Clique aqui para adicionar um conteúdo", new_artigo_path
+		%br
+
+- else
+	%b
+		%blockquote
+			%p(align="right")
+				=link_to('Entrar', new_usuario_session_path)
+		%br
 
 - @artigos.each do |artigo|
 	%blockquote
@@ -18,7 +32,7 @@
 			= link_to artigo.Título, artigo
 	%blockquote
 		%p 
-			= truncate(artigo.Conteúdo, length: 100)
+			= truncate(artigo.Conteúdo, length: 140)
 	%blockquote
 		%p(align="right")
 			Publicado em 
@@ -28,6 +42,7 @@
 
 %br
 %br
+%hr(bgcolor="#00000A")
 %br
 %b
 	%blockquote
