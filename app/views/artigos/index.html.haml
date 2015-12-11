@@ -18,12 +18,13 @@
 		%p(align="center")
 			=link_to "Clique aqui para adicionar um conteúdo", new_artigo_path
 		%br
-
+ 
 - else
 	%b
 		%blockquote
 			%p(align="right")
 				=link_to('Entrar', new_usuario_session_path)
+			
 		%br
 
 - @artigos.each do |artigo|

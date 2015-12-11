@@ -1,5 +1,7 @@
-<h2>Log in</h2>
+<img src="http://imageshack.com/a/img908/2835/M5lwNo.png" align="center" height="100" widith="100">
 
+<h2 align="center">Entrar</h2>
+<blockquote>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email, required: false, autofocus: true %>
@@ -8,8 +10,12 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  	<br>
+    <%= f.button :submit, "Entrar" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</blockquote>
+<img src="http://imageshack.com/a/img905/5237/rFUJuH.png" align="left">

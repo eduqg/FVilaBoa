@@ -51,6 +51,7 @@ class ArtigosController < ApplicationController
 	def sobre
 	end
 
+
 	private
 
 	def artigo_parametros

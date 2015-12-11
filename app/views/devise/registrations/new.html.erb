@@ -1,17 +1,23 @@
-<h2>Sign up</h2>
+<img src="http://imageshack.com/a/img908/2835/M5lwNo.png" align="center" height="100" widith="100">
+<h2 align="center">Cadastrar</h2>
+<blockquote>
+	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+	  <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+	  <div class="form-inputs">
+	    <%= f.input :email, required: true, autofocus: true %>
+	    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} Caracteres no mínimo" if @validatable) %>
+	    <%= f.input :password_confirmation, required: true %>
+	  </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
+	  <div class="form-actions">
+	  	<br>
+	    <%= f.button :submit, "Cadastrar" %>
+	    <br>
+	    <br>
+	  </div>
+	<% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+	<%= render "devise/shared/links" %>
+</blockquote>
+<img src="http://imageshack.com/a/img905/5237/rFUJuH.png" align="left">
