@@ -3,25 +3,23 @@
 /	Signed in as Mark Otto
 
 %body(bgcolor="#FFFFFF")
-%h2(align ="center") Edifício Vila Boa
+/%h2(align ="center") Edifício Vila Boa
 
 %br
 
 
 - if usuario_signed_in?
-	%p(align="center")
+	%p(align="right")
 		Usuário:
 		= current_usuario.email
 	%b
-		%blockquote
-			%p(align="center")
-				=link_to('Sair', destroy_usuario_session_path, :method => :delete)
+		
+		%p(align="right")
+			=link_to('Sair', destroy_usuario_session_path, :method => :delete)
 
 		%br
 
-		%p(align="center")
-			=link_to "Clique aqui para adicionar um tópico", new_artigo_path
-		%br
+		
  
 - else
 	%b
@@ -32,6 +30,7 @@
 		%br
 
 - if usuario_signed_in?
+
 	#artigos
 		- @artigos.each do |artigo|
 			.artigo
@@ -47,8 +46,11 @@
 						= artigo.created_at.strftime('%d %b de %Y')
 						por
 						=artigo.usuario.email
-
-				
+- if usuario_signed_in?
+	%b
+		%p(align="center")
+			=link_to "Clique aqui para adicionar um novo Tópico", new_artigo_path
+	%br		
 
 
 
@@ -61,7 +63,7 @@
 %b
 	%blockquote
 		%p(align="center")
-			=link_to "Sobre o Discipule", "sobre"
+			=link_to "Sobre o Site", "sobre"
 
 
 

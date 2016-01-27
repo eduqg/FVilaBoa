@@ -28,7 +28,10 @@
 		=link_to "Todos Tópicos", root_path
 
 		- Categoria.all.each do |categoria|
+			%blokquote
+				|
 			= link_to categoria.Nome, artigos_path(categoria: categoria.Nome)
+			
 
 	.wrapper
 		=yield
