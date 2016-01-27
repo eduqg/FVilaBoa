@@ -15,23 +15,30 @@
 	%header.main_header.clearfix
 		.wrapper
 			#logo 
-				%p Fórum Edifício Vila Boa
+				%p= link_to "Fórum Edifício Vila Boa", root_path
 			#buttons
-				
-				= link_to "Novo Tópico", new_artigo_path
+				- if usuario_signed_in?
+					= link_to "Novo Tópico", new_artigo_path
+				- else
+					=link_to('Entrar', new_usuario_session_path)
+					=link_to('Registrar', new_usuario_registration_path)
 	.wrapper
 		%p.notice 
 			= notice
 		%p.alert 
 			= alert
 	.wrapper
-		=link_to "Todos Tópicos", root_path
+		- if usuario_signed_in?
+			=link_to "Todos Tópicos", root_path
 
-		- Categoria.all.each do |categoria|
-			%blokquote
-				|
-			= link_to categoria.Nome, artigos_path(categoria: categoria.Nome)
-			
+			- Categoria.all.each do |categoria|
+				%blokquote
+					|
+				= link_to categoria.Nome, artigos_path(categoria: categoria.Nome)
+		- else
+			%br
+			%p(align="center")
+				Faça Login no site para continuar.
 
 	.wrapper
 		=yield
