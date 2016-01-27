@@ -5,4 +5,5 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    has_many :artigos
+   
 end
