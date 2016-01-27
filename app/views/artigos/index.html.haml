@@ -1,4 +1,4 @@
-%img(src="http://imageshack.com/a/img908/2835/M5lwNo.png" align="center" height="100" widith="100")
+/%img(src="http://imageshack.com/a/img908/2835/M5lwNo.png" align="center" height="100" widith="100")
 /%p(class="navbar-text")
 /	Signed in as Mark Otto
 
@@ -32,19 +32,21 @@
 		%br
 
 - if usuario_signed_in?
-	- @artigos.each do |artigo|
-		%blockquote
-			%h2
-				= link_to artigo.Título, artigo
-		%blockquote
-			%p 
-				= truncate(artigo.Conteúdo, length: 140)
-		%blockquote
-			%p(align="right")
-				Publicado em 
-				= artigo.created_at.strftime('%d %b de %Y')
-				por
-				=artigo.usuario.email
+	#artigos
+		- @artigos.each do |artigo|
+			.artigo
+				%blockquote
+					%h2.title
+						= link_to artigo.Título, artigo
+				%blockquote
+					%p.date
+						= truncate(artigo.Conteúdo, length: 140)
+				%blockquote
+					%p.date(align="right")
+						Publicado em 
+						= artigo.created_at.strftime('%d %b de %Y')
+						por
+						=artigo.usuario.email
 
 				
 
@@ -63,4 +65,4 @@
 
 
 
-%img(src="https://imageshack.com/i/p81OaqRyp" align="left")
+/%img(src="https://imageshack.com/i/p81OaqRyp" align="left")
