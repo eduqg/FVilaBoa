@@ -6,4 +6,6 @@ class Usuario < ActiveRecord::Base
 
    has_many :artigos
    
+   has_many :comentarios
+   
 end

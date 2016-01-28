@@ -18,13 +18,10 @@
 			=link_to('Sair', destroy_usuario_session_path, :method => :delete)
 
 		%br
-
-		
- 
-
-
-
+	
 	#artigos
+		%h3.title(align="left")
+			Tópicos
 		- @artigos.each do |artigo|
 			.artigo
 				%blockquote

@@ -5,6 +5,14 @@
 		%h1= @artigo.Título
 		%p= @artigo.Conteúdo
 
+		#comentarios
+			%h2= @artigo.comentarios.count
+			= render @artigo.comentarios
+
+			%h3 
+				Responder
+				= render "comentarios/form"
+
 	%blockquote
 
 		= link_to "Editar", edit_artigo_path(@artigo)
