@@ -1,24 +1,22 @@
 %br
 #artigo_conteudo
-	%blockquote
 
-		%h1= @artigo.Título
-		%p= @artigo.Conteúdo
+	%h1= @artigo.Título
+	%p= @artigo.Conteúdo
 
-		#comentarios
-			%h2= @artigo.comentarios.count
-			= render @artigo.comentarios
+	= link_to "Editar", edit_artigo_path(@artigo)
 
-			%h3 
-				Responder
-				= render "comentarios/form"
+	= link_to "Deletar", artigo_path(@artigo), method: :delete
+	
+	#comentarios
+		%h2= @artigo.comentarios.count
+		= render @artigo.comentarios
 
-	%blockquote
+		%h3 
+			Responder
+			= render "comentarios/form"
 
-		= link_to "Editar", edit_artigo_path(@artigo)
 
-		= link_to "Deletar", artigo_path(@artigo), method: :delete
-		
 	%br
 	%p(align="center")
 		= link_to "Voltar", root_path

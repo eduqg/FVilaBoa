@@ -1,2 +1,7 @@
 .comentario
 	%p= comentario.comentario
+	%p= comentario.usuario.email
+
+	= link_to "Editar", edit_artigo_comentario_path(comentario.artigo, comentario)
+
+	= link_to "Excluir", [comentario.artigo, comentario], method: :delete, data: { confirm: "Tem certeza?" }
